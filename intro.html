@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>봄 스튜디오 소개서</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;600&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Noto Sans KR', sans-serif;
+    background: #FAF7F2;
+    color: #1A1A1A;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 48px 32px;
+  }
+
+  /* ── HEADER ── */
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding-bottom: 32px;
+    border-bottom: 2px solid #1A1A1A;
+    margin-bottom: 40px;
+  }
+
+  .logo-area h1 {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 32px;
+    font-weight: 600;
+    color: #1A1A1A;
+    letter-spacing: -1px;
+  }
+
+  .logo-area h1 span { color: #C9967A; }
+
+  .logo-area p {
+    font-size: 13px;
+    color: #888;
+    margin-top: 4px;
+    letter-spacing: 1px;
+  }
+
+  .header-contact {
+    text-align: right;
+    font-size: 13px;
+    color: #555;
+    line-height: 1.8;
+  }
+
+  .header-contact a {
+    color: #C9967A;
+    text-decoration: none;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    background: #1A1A1A;
+    color: white;
+    padding: 48px 40px;
+    margin-bottom: 32px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '봄';
+    position: absolute;
+    right: -20px;
+    top: -20px;
+    font-family: 'Noto Serif KR', serif;
+    font-size: 160px;
+    color: rgba(201,150,122,0.1);
+    font-weight: 600;
+    pointer-events: none;
+  }
+
+  .hero h2 {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 28px;
+    font-weight: 400;
+    line-height: 1.5;
+    margin-bottom: 16px;
+    position: relative;
+  }
+
+  .hero h2 em {
+    font-style: normal;
+    color: #C9967A;
+  }
+
+  .hero p {
+    font-size: 14px;
+    color: rgba(255,255,255,0.65);
+    line-height: 1.9;
+    font-weight: 300;
+    position: relative;
+    max-width: 480px;
+  }
+
+  /* ── STATS ── */
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    margin-bottom: 32px;
+  }
+
+  .stat-item {
+    background: white;
+    padding: 28px 24px;
+    text-align: center;
+    border: 1px solid #EDE8E0;
+  }
+
+  .stat-num {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 36px;
+    font-weight: 600;
+    color: #C9967A;
+    display: block;
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+
+  .stat-label {
+    font-size: 12px;
+    color: #888;
+    letter-spacing: 1px;
+  }
+
+  /* ── SECTION ── */
+  .section {
+    margin-bottom: 32px;
+  }
+
+  .section-title {
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #C9967A;
+    margin-bottom: 16px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .section-title::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: #EDE8E0;
+  }
+
+  /* ── SERVICES ── */
+  .services {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+  }
+
+  .service-card {
+    background: white;
+    border: 1px solid #EDE8E0;
+    padding: 24px 20px;
+    position: relative;
+  }
+
+  .service-card.featured {
+    background: #C9967A;
+    border-color: #C9967A;
+  }
+
+  .service-card.featured * { color: white !important; }
+
+  .service-badge {
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #C9967A;
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 700;
+  }
+
+  .service-card.featured .service-badge { color: rgba(255,255,255,0.7) !important; }
+
+  .service-price {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 28px;
+    font-weight: 600;
+    color: #1A1A1A;
+    display: block;
+    margin-bottom: 4px;
+  }
+
+  .service-name {
+    font-size: 13px;
+    color: #888;
+    margin-bottom: 16px;
+    font-weight: 300;
+  }
+
+  .service-items {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .service-items li {
+    font-size: 12px;
+    color: #555;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-weight: 300;
+  }
+
+  .service-items li::before {
+    content: '·';
+    color: #C9967A;
+    font-size: 18px;
+    line-height: 0;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  /* ── PROCESS ── */
+  .process {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2px;
+  }
+
+  .process-item {
+    background: white;
+    padding: 24px 20px;
+    border: 1px solid #EDE8E0;
+    position: relative;
+  }
+
+  .process-num {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 32px;
+    font-weight: 600;
+    color: #EDE8E0;
+    display: block;
+    line-height: 1;
+    margin-bottom: 12px;
+  }
+
+  .process-title {
+    font-size: 13px;
+    font-weight: 700;
+    color: #1A1A1A;
+    margin-bottom: 6px;
+  }
+
+  .process-desc {
+    font-size: 11px;
+    color: #888;
+    line-height: 1.6;
+    font-weight: 300;
+  }
+
+  /* ── MAINTENANCE ── */
+  .maintenance {
+    background: white;
+    border: 1px solid #EDE8E0;
+    padding: 28px 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+  }
+
+  .maintenance-left h3 {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 18px;
+    font-weight: 400;
+    color: #1A1A1A;
+    margin-bottom: 8px;
+  }
+
+  .maintenance-left p {
+    font-size: 13px;
+    color: #888;
+    line-height: 1.7;
+    font-weight: 300;
+  }
+
+  .maintenance-right {
+    text-align: center;
+    flex-shrink: 0;
+  }
+
+  .maintenance-price {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 36px;
+    font-weight: 600;
+    color: #C9967A;
+    display: block;
+    line-height: 1;
+  }
+
+  .maintenance-price-sub {
+    font-size: 12px;
+    color: #888;
+    margin-top: 4px;
+  }
+
+  /* ── PORTFOLIO ── */
+  .portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+  }
+
+  .portfolio-item {
+    position: relative;
+    overflow: hidden;
+    height: 160px;
+  }
+
+  .portfolio-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: saturate(0.7) brightness(0.8);
+    transition: transform 0.5s ease;
+  }
+
+  .portfolio-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(26,26,26,0.9) 0%, transparent 60%);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 16px;
+  }
+
+  .portfolio-cat {
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: #C9967A;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+
+  .portfolio-name {
+    font-size: 15px;
+    font-weight: 500;
+    color: white;
+  }
+
+  /* ── CTA ── */
+  .cta {
+    background: #C9967A;
+    padding: 40px;
+    text-align: center;
+    margin-top: 32px;
+  }
+
+  .cta h3 {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 22px;
+    font-weight: 400;
+    color: white;
+    margin-bottom: 8px;
+    line-height: 1.4;
+  }
+
+  .cta p {
+    font-size: 13px;
+    color: rgba(255,255,255,0.8);
+    margin-bottom: 24px;
+    font-weight: 300;
+  }
+
+  .cta-links {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .cta-link {
+    background: white;
+    color: #C9967A;
+    padding: 12px 28px;
+    font-size: 13px;
+    font-weight: 700;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .cta-link.outline {
+    background: transparent;
+    color: white;
+    border: 1.5px solid rgba(255,255,255,0.6);
+  }
+
+  /* ── FOOTER ── */
+  .footer {
+    margin-top: 32px;
+    padding-top: 24px;
+    border-top: 1px solid #EDE8E0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12px;
+    color: #aaa;
+  }
+
+  /* ── MOBILE ── */
+  @media (max-width: 600px) {
+    body { padding: 32px 20px; }
+    .header { flex-direction: column; gap: 16px; }
+    .header-contact { text-align: left; }
+    .stats { grid-template-columns: repeat(3, 1fr); }
+    .services { grid-template-columns: 1fr; }
+    .process { grid-template-columns: repeat(2, 1fr); }
+    .maintenance { flex-direction: column; text-align: center; }
+    .portfolio-grid { grid-template-columns: 1fr 1fr; }
+    .hero { padding: 32px 24px; }
+    .cta { padding: 32px 24px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="header">
+  <div class="logo-area">
+    <h1>봄 <span>Studio</span></h1>
+    <p>AI 홈페이지 제작 서비스</p>
+  </div>
+  <div class="header-contact">
+    <a href="https://bomstudio2026.github.io/bom-studio/">포트폴리오 보기 →</a><br>
+    카카오톡: <a href="https://open.kakao.com/o/gJSyDari">상담 바로가기</a><br>
+    설문 의뢰: <a href="https://naver.me/GCJUdw32">견적 신청</a>
+  </div>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+  <h2>소상공인을 위한<br><em>합리적인 홈페이지</em></h2>
+  <p>AI 기술로 빠르고 합리적인 가격에 퀄리티 높은 홈페이지를 제작해드립니다. 미용실·카페·학원·식당 등 다양한 업종 경험을 보유하고 있습니다.</p>
+</div>
+
+<!-- STATS -->
+<div class="stats">
+  <div class="stat-item">
+    <span class="stat-num">3+</span>
+    <span class="stat-label">포트폴리오</span>
+  </div>
+  <div class="stat-item">
+    <span class="stat-num">7일</span>
+    <span class="stat-label">평균 제작기간</span>
+  </div>
+  <div class="stat-item">
+    <span class="stat-num">30만~</span>
+    <span class="stat-label">시작 가격</span>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<div class="section">
+  <div class="section-title">요금 안내</div>
+  <div class="services">
+    <div class="service-card">
+      <span class="service-badge">Basic</span>
+      <span class="service-price">30만원~</span>
+      <div class="service-name">랜딩페이지 (1페이지)</div>
+      <ul class="service-items">
+        <li>업체 소개 구성</li>
+        <li>모바일 최적화</li>
+        <li>카카오톡·전화 연결</li>
+        <li>무료 배포</li>
+        <li>2회 무료 수정</li>
+      </ul>
+    </div>
+    <div class="service-card featured">
+      <span class="service-badge">★ 인기 Standard</span>
+      <span class="service-price">50만원~</span>
+      <div class="service-name">홈페이지 (멀티페이지)</div>
+      <ul class="service-items">
+        <li>5페이지 구성</li>
+        <li>상담 신청 폼</li>
+        <li>갤러리·메뉴 구성</li>
+        <li>도메인 연결</li>
+        <li>네이버 SEO 설정</li>
+        <li>3회 무료 수정</li>
+      </ul>
+    </div>
+    <div class="service-card">
+      <span class="service-badge">Premium</span>
+      <span class="service-price">100만원~</span>
+      <div class="service-name">프리미엄 패키지</div>
+      <ul class="service-items">
+        <li>10페이지 구성</li>
+        <li>고급 인터랙션</li>
+        <li>예약 시스템 연동</li>
+        <li>SNS 연동</li>
+        <li>무제한 수정</li>
+        <li>유지보수 1개월 포함</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- PROCESS -->
+<div class="section">
+  <div class="section-title">제작 과정</div>
+  <div class="process">
+    <div class="process-item">
+      <span class="process-num">01</span>
+      <div class="process-title">설문 작성</div>
+      <div class="process-desc">업종·디자인·필요 기능 등 간단한 설문 작성 (5분)</div>
+    </div>
+    <div class="process-item">
+      <span class="process-num">02</span>
+      <div class="process-title">상담·기획</div>
+      <div class="process-desc">카카오톡 상담 후 구성과 디자인 방향 결정</div>
+    </div>
+    <div class="process-item">
+      <span class="process-num">03</span>
+      <div class="process-title">제작·수정</div>
+      <div class="process-desc">평균 3~7일 내 초안 완성. 무료 수정 포함</div>
+    </div>
+    <div class="process-item">
+      <span class="process-num">04</span>
+      <div class="process-title">납품·배포</div>
+      <div class="process-desc">무료 호스팅 배포. 도메인 연결 지원</div>
+    </div>
+  </div>
+</div>
+
+<!-- MAINTENANCE -->
+<div class="section">
+  <div class="section-title">유지보수 안내</div>
+  <div class="maintenance">
+    <div class="maintenance-left">
+      <h3>납품 후에도 걱정 없어요</h3>
+      <p>
+        메뉴·가격·영업시간 등 내용 변경이 필요할 때<br>
+        월정액으로 편하게 맡기세요.<br>
+        건당 수정도 가능합니다.
+      </p>
+    </div>
+    <div class="maintenance-right">
+      <span class="maintenance-price">월 5만원</span>
+      <div class="maintenance-price-sub">월정액 유지보수<br>(건당 수정 1~3만원)</div>
+    </div>
+  </div>
+</div>
+
+<!-- PORTFOLIO -->
+<div class="section">
+  <div class="section-title">포트폴리오</div>
+  <div class="portfolio-grid">
+    <div class="portfolio-item">
+      <img src="https://bomstudio2026.github.io/bom-studio/hairsalon.avif" alt="미용실">
+      <div class="portfolio-overlay">
+        <div class="portfolio-cat">미용실</div>
+        <div class="portfolio-name">헤어살롱 봄</div>
+      </div>
+    </div>
+    <div class="portfolio-item">
+      <img src="https://bomstudio2026.github.io/bom-studio/cafe.avif" alt="카페">
+      <div class="portfolio-overlay">
+        <div class="portfolio-cat">카페</div>
+        <div class="portfolio-name">카페 봄</div>
+      </div>
+    </div>
+    <div class="portfolio-item">
+      <img src="https://bomstudio2026.github.io/bom-studio/academy.avif" alt="학원">
+      <div class="portfolio-overlay">
+        <div class="portfolio-cat">학원</div>
+        <div class="portfolio-name">봄영어학원</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CTA -->
+<div class="cta">
+  <h3>지금 바로 시작해보세요</h3>
+  <p>설문 작성부터 납품까지 평균 7일 · 전국 원격 가능</p>
+  <div class="cta-links">
+    <a href="https://naver.me/GCJUdw32" class="cta-link">📋 무료 견적 신청</a>
+    <a href="https://open.kakao.com/o/gJSyDari" class="cta-link outline">💬 카카오톡 상담</a>
+    <a href="https://bomstudio2026.github.io/bom-studio/" class="cta-link outline">🌐 포트폴리오</a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <span>봄 Studio · AI 홈페이지 제작</span>
+  <span>© 2025 봄 Studio</span>
+</div>
+
+</body>
+</html>
